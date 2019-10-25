@@ -1,7 +1,7 @@
 MAKEFLAGS += --no-builtin-rules
 
 # Executables
-CC := cc
+CC := gcc
 
 # List of sources
 C_SOURCES = ./rubiks.c \
