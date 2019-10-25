@@ -1,3 +1,14 @@
+/*
+    Definitions of functions used to manipulate the cube in different ways.
+    The convention used here is that rotations of any face are performed with
+    clockwise and anticlockwise as per looking directly at the face being rotated.
+
+    For ease of implementation at this stage, only the clockwise face rotations
+    contain a detailed implementation. Rotations anticlockwise are modelled as
+    three successive clockwise rotations of the same face (this gives the same
+    result).
+*/
+
 #include "rubiks.h"
 #include "rubiks_move.h"
 
@@ -100,6 +111,11 @@ void rubiks_move_back_aw( rubiks_cube_t* const cube_ptr )
     rubiks_move_back_cw( cube_ptr );
 }
 
+/*
+    This function will rotate four cubies around themselves. Each cube manipulation
+    can be broken down a series of rotations of four cubie faces. This function performs
+    a rotation of a group of four of these.
+*/
 static void rubiks_move_rotate_four( RUBIKS_COLOUR_T* const a_ptr, RUBIKS_COLOUR_T* const b_ptr, RUBIKS_COLOUR_T* const c_ptr, RUBIKS_COLOUR_T* const d_ptr )
 {
     RUBIKS_COLOUR_T temp = *d_ptr;
