@@ -18,6 +18,7 @@ void rubiks_display( const rubiks_cube_t* const cube_ptr )
     rubiks_display_row( NULL, &cube_ptr->top, NULL, NULL );
     rubiks_display_row( &cube_ptr->left, &cube_ptr->front, &cube_ptr->right, &cube_ptr->back );
     rubiks_display_row( NULL, &cube_ptr->bottom, NULL, NULL );
+    printf("\n");
 }
 
 
