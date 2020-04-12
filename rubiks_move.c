@@ -111,6 +111,54 @@ void rubiks_move_back_aw( rubiks_cube_t* const cube_ptr )
     rubiks_move_back_cw( cube_ptr );
 }
 
+void rubiks_move_rotate_front_cw( rubiks_cube_t* const cube_ptr )
+{
+    rubiks_move_front_cw( cube_ptr );
+    rubiks_move_back_aw( cube_ptr );
+    rubiks_move_rotate_four( &(cube_ptr->top.cubie[1][0]), &(cube_ptr->right.cubie[0][1]), &(cube_ptr->bottom.cubie[1][2]), &(cube_ptr->left.cubie[2][1]) );
+    rubiks_move_rotate_four( &(cube_ptr->top.cubie[1][1]), &(cube_ptr->right.cubie[1][1]), &(cube_ptr->bottom.cubie[1][1]), &(cube_ptr->left.cubie[1][1]) );
+    rubiks_move_rotate_four( &(cube_ptr->top.cubie[1][2]), &(cube_ptr->right.cubie[2][1]), &(cube_ptr->bottom.cubie[1][0]), &(cube_ptr->left.cubie[0][1]) );
+}
+
+void rubiks_move_rotate_front_aw( rubiks_cube_t* const cube_ptr )
+{
+    rubiks_move_rotate_front_cw( cube_ptr );
+    rubiks_move_rotate_front_cw( cube_ptr );
+    rubiks_move_rotate_front_cw( cube_ptr );
+}
+
+void rubiks_move_rotate_top_cw( rubiks_cube_t* const cube_ptr )
+{
+    rubiks_move_top_cw( cube_ptr );
+    rubiks_move_bottom_aw( cube_ptr );
+    rubiks_move_rotate_four( &(cube_ptr->front.cubie[1][0]), &(cube_ptr->left.cubie[1][0]), &(cube_ptr->back.cubie[1][0]), &(cube_ptr->right.cubie[1][0]) );
+    rubiks_move_rotate_four( &(cube_ptr->front.cubie[1][1]), &(cube_ptr->left.cubie[1][1]), &(cube_ptr->back.cubie[1][1]), &(cube_ptr->right.cubie[1][1]) );
+    rubiks_move_rotate_four( &(cube_ptr->front.cubie[1][2]), &(cube_ptr->left.cubie[1][2]), &(cube_ptr->back.cubie[1][2]), &(cube_ptr->right.cubie[1][2]) );
+}
+
+void rubiks_move_rotate_top_aw( rubiks_cube_t* const cube_ptr )
+{
+    rubiks_move_rotate_top_cw( cube_ptr );
+    rubiks_move_rotate_top_cw( cube_ptr );
+    rubiks_move_rotate_top_cw( cube_ptr );
+}
+
+void rubiks_move_rotate_left_cw( rubiks_cube_t* const cube_ptr )
+{
+    rubiks_move_left_cw( cube_ptr );
+    rubiks_move_right_aw( cube_ptr );
+    rubiks_move_rotate_four( &(cube_ptr->top.cubie[0][1]), &(cube_ptr->front.cubie[0][1]), &(cube_ptr->bottom.cubie[0][1]), &(cube_ptr->back.cubie[2][1]) );
+    rubiks_move_rotate_four( &(cube_ptr->top.cubie[1][1]), &(cube_ptr->front.cubie[1][1]), &(cube_ptr->bottom.cubie[1][1]), &(cube_ptr->back.cubie[1][1]) );
+    rubiks_move_rotate_four( &(cube_ptr->top.cubie[2][1]), &(cube_ptr->front.cubie[2][1]), &(cube_ptr->bottom.cubie[2][1]), &(cube_ptr->back.cubie[0][1]) );
+}
+
+void rubiks_move_rotate_left_aw( rubiks_cube_t* const cube_ptr )
+{
+    rubiks_move_rotate_left_cw( cube_ptr );
+    rubiks_move_rotate_left_cw( cube_ptr );
+    rubiks_move_rotate_left_cw( cube_ptr );
+}
+
 /*
     This function will rotate four cubies around themselves. Each cube manipulation
     can be broken down a series of rotations of four cubie faces. This function performs

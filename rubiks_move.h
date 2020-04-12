@@ -24,5 +24,11 @@ extern void rubiks_move_front_cw( rubiks_cube_t* const cube_ptr );
 extern void rubiks_move_front_aw( rubiks_cube_t* const cube_ptr );
 extern void rubiks_move_back_cw( rubiks_cube_t* const cube_ptr );
 extern void rubiks_move_back_aw( rubiks_cube_t* const cube_ptr );
+extern void rubiks_move_rotate_front_cw( rubiks_cube_t* const cube_ptr );
+extern void rubiks_move_rotate_front_aw( rubiks_cube_t* const cube_ptr );
+extern void rubiks_move_rotate_top_cw( rubiks_cube_t* const cube_ptr );
+extern void rubiks_move_rotate_top_aw( rubiks_cube_t* const cube_ptr );
+extern void rubiks_move_rotate_left_cw( rubiks_cube_t* const cube_ptr );
+extern void rubiks_move_rotate_left_aw( rubiks_cube_t* const cube_ptr );
 
 #endif /* RUBIKS_MOVE_H */
