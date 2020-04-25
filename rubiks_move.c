@@ -1,12 +1,8 @@
 /*
     Definitions of functions used to manipulate the cube in different ways.
-    The convention used here is that rotations of any face are performed with
-    clockwise and anticlockwise as per looking directly at the face being rotated.
-
-    For ease of implementation at this stage, only the clockwise face rotations
-    contain a detailed implementation. Rotations anticlockwise are modelled as
-    three successive clockwise rotations of the same face (this gives the same
-    result).
+    Functions provided here can either rotate a face, or rotate the entire cube.
+    The convention for any rotation is that clockwise or anticlockwise applies
+    when looking directly at the face being manipulated.
 */
 
 #include "rubiks.h"
